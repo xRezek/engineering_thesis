@@ -1,22 +1,28 @@
+from ultralytics import YOLO
 import cv2 as cv
-import numpy as np
-import matplotlib.pyplot as plt    
 
-img = cv.imread("Resources/Photos/park.jpg")
-cv.imshow("Boston", img)
 
-# hsv 
+model = YOLO("my_model.pt")  
 
-hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
-cv.imshow("HSV", hsv)
 
-# lab
-lab = cv.cvtColor(img, cv.COLOR_BGR2LAB)
-cv.imshow("LAB", lab)
+cap = cv.VideoCapture(0)
 
-img_for_matplotlib = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-plt.imshow(img_for_matplotlib)
-plt.show()
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
 
-cv.waitKey(7000)
+    
+    results = model(frame)
+
+    
+    annotated_frame = results[0].plot()  
+
+   
+    cv.imshow("YOLOv8 Detection", annotated_frame)
+
+    if cv.waitKey(1) & 0xFF == 27:  # ESC 
+        break
+
+cap.release()
 cv.destroyAllWindows()
