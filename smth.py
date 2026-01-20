@@ -144,6 +144,9 @@ while True:
         db.close()
         break
     elif key == ord('r'):
+        cursor.execute("INSERT INTO session_summaries (id, entries, errors, correct_sequences, start, end) VALUES (NULL, %s, %s, %s, %s, CURRENT_TIMESTAMP())",(int(stats['entries']), int(stats['errors']), int(stats['sequences']), session_start.strftime('%Y-%m-%d %H:%M:%S')))
+        db.commit()
+        session_start = datetime.now()
         history.clear()
         current_zone = None
         last_zone = None
