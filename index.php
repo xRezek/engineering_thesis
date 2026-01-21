@@ -48,7 +48,9 @@
 
 
         </table>
-        <button class="pico-background-jade-500">Eksportuj do csv</button>
+        <form action="csvexportsummaries.php" method="post">
+          <button class="pico-background-jade-500">Eksportuj do csv</button>
+        </form>
 
         <h2>Najczęstsze błędy</h2>
         <table class="striped">   
@@ -65,15 +67,10 @@
             </tr>
           <?php endforeach;?>
         </table>
-        <button class="pico-background-jade-500">Eksportuj do csv</button>
-
+        <form action="csvexporterrors.php" method="post">
+          <button class="pico-background-jade-500">Eksportuj do csv</button>
+        </form>
       </div>        
-    </div>
-    <div class="grid">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
     </div>
   </main>
 
