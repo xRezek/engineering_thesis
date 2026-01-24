@@ -1,6 +1,5 @@
 import cv2 as cv
 import mediapipe as mp
-import numpy as np
 from datetime import datetime
 from collections import deque
 import pymysql
