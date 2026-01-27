@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="pico.min.css">
   <link rel="stylesheet" href="pico.colors.min.css">
   <link rel="stylesheet" href="style.css">
-  <title>Panel Inżyniera</title>
+  <title>Panel użytkownika</title>
 </head>
 <body>
   <header class="container-fluid">
-    <h1>Panel inżyniera</h1>
+    <h1>Panel użytkownika</h1>
   </header>
   <main class="container">
 
