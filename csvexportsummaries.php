@@ -6,7 +6,10 @@ $connection = new PDO('mysql:host=localhost;dbname=engineering_thesis', 'root', 
 ));
 
 
-$data_to_export = $connection->prepare("SELECT entries, errors, correct_sequences, SEC_TO_TIME(TIMESTAMPDIFF(second, start, end)) AS duration, start, end FROM session_summaries", [PDO::FETCH_ASSOC]);
+$data_to_export = $connection
+->prepare("SELECT entries, errors, correct_sequences, 
+           SEC_TO_TIME(TIMESTAMPDIFF(second, start, end)) AS duration, start, end 
+           FROM session_summaries", [PDO::FETCH_ASSOC]);
 $data_to_export->execute();
 
 $csvFilename = 'export_session_summaries_' . date('Y-m-d_H-i-s') . '.csv';

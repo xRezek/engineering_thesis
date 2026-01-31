@@ -5,7 +5,11 @@ $connection = new PDO('mysql:host=localhost;dbname=engineering_thesis', 'root', 
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ));
 
-$data_to_export = $connection->prepare("SELECT COUNT(*) AS count, message FROM `errors` GROUP BY message ORDER BY count DESC", [PDO::FETCH_ASSOC]);
+$data_to_export = $connection
+->prepare("SELECT COUNT(*) AS count, message 
+FROM `errors` 
+GROUP BY message 
+ORDER BY count DESC", [PDO::FETCH_ASSOC]);
 $data_to_export->execute();
 
 $csvFilename = 'export_errors_' . date('Y-m-d_H-i-s') . '.csv';

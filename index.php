@@ -18,7 +18,6 @@
     <h1>Panel użytkownika</h1>
   </header>
   <main class="container">
-
     <div class="grid">
       <div>
         <h2>Podsumowanie sesji</h2>
@@ -45,13 +44,10 @@
               </tr>
             <?php endforeach;?>
           </tbody>
-
-
         </table>
         <form action="csvexportsummaries.php" method="post">
           <button class="pico-background-jade-500">Eksportuj do csv</button>
         </form>
-
         <h2>Najczęstsze błędy</h2>
         <table class="striped">   
           <thead>

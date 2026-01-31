@@ -13,7 +13,8 @@ if (!$connection) {
 
 }else{
 
-  $mostCommonErrors = $connection->prepare("SELECT COUNT(*) AS count, message FROM `errors` GROUP BY message ORDER BY count DESC");
+  $mostCommonErrors = $connection
+  ->prepare("SELECT COUNT(*) AS count, message FROM `errors` GROUP BY message ORDER BY count DESC");
   $mostCommonErrors->execute();
   $errors = [];
 
@@ -23,7 +24,13 @@ if (!$connection) {
 
   }
 
-  $sessionSummaries = $connection->prepare("SELECT entries, errors, correct_sequences, SEC_TO_TIME(TIMESTAMPDIFF(second, start, end)) AS duration, start, end FROM session_summaries");
+  $sessionSummaries = $connection
+  ->prepare("SELECT entries,
+                    errors,
+                    correct_sequences,
+                    SEC_TO_TIME(TIMESTAMPDIFF(second, start, end)) AS duration,
+                    start, end 
+             FROM session_summaries");
   $sessionSummaries->execute();
   $summaries = [];
 
@@ -33,5 +40,4 @@ if (!$connection) {
 
   }
 
-  // dump($summaries);
 }
